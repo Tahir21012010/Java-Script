@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+         #dice {
+        font-size: 100px;
+        text-align: flex;
+        width: 150px;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid black;
+        border-radius: 10px;
+        margin: 20px auto;
+        cursor: pointer;
+        background-color: #f9f9f9;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+    }
+    </style>
+</head>
+<body>
+    <div>Click on the dice...</div>
+    <div id="dice" onclick="stopstart()"></div>
+    <script>
+        var dice;
+        // dice imge from value 1 to 6 are given in array, coads re from Die face emoji emojipedia
+        var diceImages = ['&#9856;', '&#9857;', '&#9858;', '&#9859;', '&#9860;', '&#9861;' ];
+        var stopped = true;
+        var t;
+        // for keep on changing the dice emojis
+        function change() {
+            var random = Math.floor(Math.random() * 6);
+            dice = innerHTML = diceImages[random];
+            document.getElementById('dice').innerHTML = diceImages[random];
+        }
+        function stopstart() {
+            if (stopped) {
+                stopped = false;
+                t = setInterval(change, 100);
+            } else {
+                stopped = true;
+                clearInterval(t);
+            }
+        }
+        window.onload = function() {
+            var random = Math.floor(Math.random() * 6);
+            dice = innerHTML = diceImages[random];
+            document.getElementById('dice').innerHTML = diceImages[random];
+        }
+    </script>
+</body>
+</html>
+</style>
